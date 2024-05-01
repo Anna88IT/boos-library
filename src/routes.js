@@ -1,11 +1,13 @@
 import express from "express";
 import authorization from "./authentication/authorizationRoutes.js";
-import admin from "./admin/adminRoutes.js"
+import admin from "./admin/adminRoutes.js";
+import home from "./home/homeRoutes.js"
 const routes = express.Router();
+import register from "./authentication/routes/registerRoutes.js"
+import login from "./authentication/routes/loginRoutes.js"
 
-routes.use("/", authorization);
+routes.use("/auth", authorization);
+// routes.use("/auth", login);
 routes.use("/", admin);
-routes.use("/", (req, res) => {
-    res.send("44444444444");
-})
+routes.use("/", home);
 export default routes;

@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 passport.use(new passportLocal.Strategy({
     usernameField: 'email'
 }, async (email, password, done) => {
+
     try {
         const user = await getUserByEmail(email);
         if(user === undefined) {

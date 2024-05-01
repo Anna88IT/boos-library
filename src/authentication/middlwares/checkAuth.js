@@ -1,6 +1,8 @@
 export const checkAuthentication = (req, res, next) => {
+    console.log("not auth")
     if(!req.isAuthenticated()){
-        res.redirect("/login");
+        console.log("not auth if")
+        res.redirect("/auth/login");
     }
     next();
 };

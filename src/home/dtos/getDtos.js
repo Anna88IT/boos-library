@@ -1,15 +1,13 @@
 export class BooksGetDto {
-    constructor(id, bookTitle, author, releaseYear, language, description, genre_id, library_id, count, price, img) {
+    constructor(id, bookTitle, author, genre_id, genre, name, price, count, img) {
         this.id = id;
         this.bookTitle = bookTitle;
         this.author = author;
-        this.releaseYear = releaseYear;
-        this.language = language;
-        this.description = description;
         this.genre_id = genre_id;
-        this.library_id = library_id;
-        this.count = count;
+        this.genre = genre;
+        this.library = name;
         this.price = price;
+        this.count = count;
         this.img = img;
     }
 }
