@@ -13,10 +13,10 @@ const port = process.env.PORT;
 const app = express();
 // app.use(cors());
 
-// app.use(cors({
-//     origin: 'http://localhost:3000/', // Replace with your React app domain
-//     credentials: true // Allow credentials (cookies)
-// }));
+app.use(cors({
+    origin: 'http://localhost:3000', // Replace with your React app domain
+    credentials: true // Allow credentials (cookies)
+}));
 console.log(process.env.DATABASE)
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,18 +31,18 @@ app.use(passport.session());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Methods",
-        "OPTIONS, GET, POST, PUT, PATCH, DELETE"
-    );
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    if (req.method === "OPTIONS") {
-        return res.sendStatus(200);
-    }
-    next();
-});
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.setHeader(
+//         "Access-Control-Allow-Methods",
+//         "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+//     );
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//     if (req.method === "OPTIONS") {
+//         return res.sendStatus(200);
+//     }
+//     next();
+// });
 
 // passport.use(new passportLocal.Strategy({
 //     usernameField: "email"

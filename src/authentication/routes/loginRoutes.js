@@ -5,7 +5,7 @@ const routes = express.Router();
 
 
 // routes.get("/", checknotAuthentication, loginGet);
-routes.post("/", login);
+routes.post("/", checknotAuthentication, login);
 routes.get("/logout", logout);
 
 export default routes;
