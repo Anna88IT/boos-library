@@ -5,6 +5,6 @@ import login from "./routes/loginRoutes.js";
 const routes = express.Router();
 
 routes.use("/register", register);
-routes.use("/login", login);
+routes.use("/", login);
 
 export default routes;

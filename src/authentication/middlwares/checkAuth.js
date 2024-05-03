@@ -1,16 +1,21 @@
 export const checkAuthentication = (req, res, next) => {
-    console.log("not auth")
-    if(!req.isAuthenticated()){
+    console.log("not auth");
+    console.log(req.user, "user in check")
+    if(req.isAuthenticated()){
         console.log("not auth if")
-        res.redirect("/auth/login");
+        res.locals.isAuthenticated = true;
+    } else {
+        console.log("not auth else")
+        res.locals.isAuthenticated = false;
     }
     next();
 };
 export const checknotAuthentication = (req, res, next) => {
     console.log("check auth");
-    if(req.isAuthenticated()){
+    console.log(req.user, "user in check")
+    if(!req.isAuthenticated()){
         console.log("check auth if");
-        res.redirect("/");
+        res.send("authenticated");
     }
     next();
 }

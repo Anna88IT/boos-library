@@ -68,8 +68,39 @@ export const allBooks = async (params) => {
     }
 }
 
-// export const getBookInfo = () => {
-//
-// }
-//
-//
+export const getBookInfo = async (params) => {
+    const param = JSON.parse(params);
+    console.log(param, "in order param");
+        try {
+              const  book = await BookEntity.findOne({
+                    include: [
+                        {
+                            model: GenreEntity,
+                            attributes: ['genre']
+                        },
+                        {
+                            model: LibraryEntity,
+                            attributes: ['name']
+                        }
+                    ],
+                    where: param
+                })
+
+            return new BooksGetDto(
+                book.id,
+                book.bookTitle,
+                book.author,
+                book.genre_id,
+                book.genre,
+                book.library,
+                book.price,
+                book.count,
+                book.img
+            )
+        } catch (error) {
+            throw new Error("Could not fetch books");
+        }
+
+}
+
+
