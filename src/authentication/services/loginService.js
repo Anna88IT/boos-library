@@ -19,7 +19,7 @@ export const getUserByEmail = async (email) => {
 
 export const getUserById = async (id) => {
     try {
-        const user = await UserEntity.findOne({where: {id: id}});
+        const user = await UserEntity.findByPk(id);
         return user
     } catch (error) {
         throw new Error('Error fetching user by email');

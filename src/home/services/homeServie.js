@@ -4,7 +4,7 @@ import {LibraryEntity} from "../../admin/entities/libraryEntity.js";
 import {BooksGetDto} from "../dtos/getDtos.js";
 
 export const allBooks = async (params) => {
-    const param = JSON.parse(params);
+    const param = JSON.parse(params)
     console.log(param)
     let books;
     let uniqueBooks;
@@ -70,6 +70,7 @@ export const allBooks = async (params) => {
 
 export const getBookInfo = async (params) => {
     const param = JSON.parse(params);
+    console.log(param, "param")
     console.log(param, "in order param");
         try {
               const  book = await BookEntity.findOne({
